@@ -1,64 +1,494 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# 🎵 Concierto Master
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Project Overview
 
-## About Laravel
+Concierto Master is a web application developed with Laravel for concert management and administration. It allows ticket sales and reservations, user administration, revenue tracking, and automatic generation of electronic tickets.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+The system centralizes all processes related to organizing musical events, providing a secure and efficient platform for both customers and administrators.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Project Objective
 
-## Learning Laravel
+To automate concert management and ticket sales through a web application that enables administrators to manage reservations, sales, revenues, users, and electronic ticket generation.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Main Features
 
-## Laravel Sponsors
+* User and role management
+* Individual and bulk ticket sales
+* Seat reservation system
+* Automatic PDF ticket generation
+* Ticket delivery via email
+* Reservation lookup
+* Revenue management
+* Administrative dashboard
+* Seat availability control
+* Buyer management
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+---
 
-### Premium Partners
+# System Architecture
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+The project follows the **MVC (Model-View-Controller)** architectural pattern provided by Laravel.
 
-## Contributing
+## Models
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+The main entities of the system include:
 
-## Code of Conduct
+* User
+* UserGmo
+* Buyer
+* Seat
+* SeatSold
+* Collection
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## Controllers
 
-## Security Vulnerabilities
+Business logic is handled by:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+* UserController
+* SeatController
+* SeatSoldController
+* CollectionController
 
-## License
+## Views
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The graphical user interface includes modules for:
+
+* Customers
+* Administrators
+* Sales management
+* Reservation lookup
+* Revenue control
+
+---
+
+# System Modules
+
+## User Management
+
+Allows administrators to:
+
+* Create users
+* Edit user information
+* Delete users
+* Manage permissions
+* Control system access
+
+### Main Functions
+
+* User registration
+* Login
+* Logout
+* Profile management
+
+---
+
+## Seat Management
+
+Provides functionality to:
+
+* Register seats
+* Check availability
+* Assign seats to buyers
+* Manage occupancy
+
+### Main Entity
+
+```text
+Seat
+```
+
+---
+
+## Sales Management
+
+Provides functionality for:
+
+* Individual ticket sales
+* Bulk ticket sales
+* Transaction registration
+* Availability control
+
+### Main Entity
+
+```text
+SeatSold
+```
+
+---
+
+## Buyer Management
+
+Stores customer information associated with ticket purchases.
+
+### Recorded Information
+
+* Full name
+* Identification number
+* Email address
+* Purchase details
+
+### Main Entity
+
+```text
+Buyer
+```
+
+---
+
+## Ticket Management
+
+The system automatically generates electronic tickets for every completed purchase.
+
+### Features
+
+* PDF ticket generation
+* Ticket download
+* Ticket delivery via email
+* Individual and bulk ticket generation
+
+---
+
+## Revenue Management
+
+Provides financial control over ticket sales.
+
+### Features
+
+* Revenue registration
+* Revenue tracking
+* Revenue record deletion
+* Income monitoring
+
+### Main Entity
+
+```text
+Collection
+```
+
+---
+
+# System Workflow
+
+## 1. User Authentication
+
+Administrators access the platform through a secure login form.
+
+The system validates:
+
+* Username
+* Password
+* Access permissions
+
+---
+
+## 2. User Administration
+
+Administrators can:
+
+* Create users
+* Update user information
+* Delete users
+* Assign permissions
+
+---
+
+## 3. Reservation or Purchase
+
+Customers select available seats for a concert.
+
+The system:
+
+* Verifies seat availability
+* Registers the reservation
+* Records the sale
+
+---
+
+## 4. Ticket Generation
+
+Once the purchase is completed:
+
+* A PDF ticket is generated
+* Sale information is stored
+* Ticket download becomes available
+* A copy is sent by email
+
+---
+
+## 5. Sales Administration
+
+Administrators can:
+
+* Review completed sales
+* View buyer information
+* Access generated tickets
+* Manage sales records
+
+---
+
+## 6. Revenue Control
+
+Income generated from ticket sales can be tracked and managed through the revenue management module.
+
+---
+
+# Main System Routes
+
+## Public Access
+
+```text
+/
+```
+
+Home page.
+
+---
+
+```text
+/consult-reservation
+```
+
+Reservation lookup.
+
+---
+
+```text
+/form-login
+```
+
+Login page.
+
+---
+
+## Administration
+
+```text
+/system/users
+```
+
+User management.
+
+---
+
+```text
+/system/admin-sales
+```
+
+Sales administration.
+
+---
+
+```text
+/collect-money
+```
+
+Revenue management.
+
+---
+
+## Tickets
+
+```text
+/system/download-ticket/{id}
+```
+
+Ticket download.
+
+---
+
+```text
+/system/send-ticket-customer/{id}
+```
+
+Ticket delivery via email.
+
+---
+
+# Database
+
+The application uses MySQL as its relational database management system.
+
+## Main Tables
+
+### users
+
+Authenticated users.
+
+### users_gmos
+
+Administrative users.
+
+### roles_gmos
+
+System roles.
+
+### buyers
+
+Customer information.
+
+### seats
+
+Available seats.
+
+### seats_sold
+
+Sold seats.
+
+### collections
+
+Revenue records.
+
+---
+
+# Technologies Used
+
+## Backend
+
+* PHP 8
+* Laravel 8
+
+## Database
+
+* MySQL
+
+## Frontend
+
+* HTML5
+* CSS3
+* JavaScript
+* Bootstrap
+
+## Tools
+
+* Composer
+* Git
+* GitHub
+
+---
+
+# Key Dependencies
+
+## laravel/framework
+
+Main application framework.
+
+## laravel/sanctum
+
+Authentication and API security.
+
+## barryvdh/laravel-dompdf
+
+PDF generation.
+
+## milon/barcode
+
+Barcode generation.
+
+## laravolt/avatar
+
+Avatar generation.
+
+---
+
+# Project Structure
+
+```text
+concierto_master/
+│
+├── app/
+├── bootstrap/
+├── config/
+├── database/
+├── public/
+├── resources/
+├── routes/
+├── storage/
+├── tests/
+├── composer.json
+├── package.json
+└── artisan
+```
+
+---
+
+# Installation
+
+## Clone the repository
+
+```bash
+git clone https://github.com/JosephGomez8/concierto_master.git
+```
+
+## Enter the project directory
+
+```bash
+cd concierto_master
+```
+
+## Install dependencies
+
+```bash
+composer install
+```
+
+## Configure environment variables
+
+```bash
+cp .env.example .env
+```
+
+## Generate Laravel application key
+
+```bash
+php artisan key:generate
+```
+
+## Run database migrations
+
+```bash
+php artisan migrate
+```
+
+## Start the development server
+
+```bash
+php artisan serve
+```
+
+---
+
+# Security
+
+The system implements:
+
+* Authentication middleware
+* Administrative access control
+* User validation
+* Protected administrative routes
+
+---
+
+# Benefits
+
+* Automated ticket sales process
+* Centralized concert management
+* Efficient user administration
+* Automatic ticket generation
+* Financial tracking through revenue management
+* Improved administrative organization
+
+---
+
+# Author
+
+Academic project developed for concert ticket sales and management using Laravel
+
+---
+
+# Project Status
+
+Academic project developed with Laravel for concert management and ticket sales administration.
